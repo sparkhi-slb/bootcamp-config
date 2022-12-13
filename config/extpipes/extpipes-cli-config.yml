@@ -26,9 +26,9 @@ extpipe-pattern: '{source}:{short-name}:{rawtable-name}:{suffix}'
 
 # can contain multiple contacts, can be overwritten on pipeline level
 default-contacts:
-    - name: [Contact name]
-      email: [Contact email]
-      role: [Role name]
+    - name: Sandip
+      email: sparkhi@slb.com
+      role: Bootcamp 14 Administrator
       send-notification: true
 
 rawdbs:
@@ -41,7 +41,7 @@ rawdbs:
         - source: csv
           schedule: On trigger
           contacts:
-            - name: Sandip Parkhi
+            - name: Sandip
               email: sparkhi@2slb.com
               role: Bootcamp 14 Administrator
               send-notification: false
