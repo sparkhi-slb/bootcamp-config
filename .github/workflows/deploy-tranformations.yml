@@ -41,7 +41,6 @@ jobs:
       COGNITE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
       COGNITE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
       CDF_PROJECT_NAME: ${{ matrix.CDF_PROJECT }}
-
     steps:
       - uses: actions/checkout@v2
       - uses: cognitedata/transformations-cli@main
