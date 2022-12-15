@@ -1,28 +1,30 @@
 # Manifest file downloaded from fusion
-externalId: tr-ts_assets_mapping_ui
-name: ts_assets_mapping_ui
+externalId: tr-create_asset_hierarchy_ui
+name: create_asset_hierarchy_ui
 query: >
-  SELECT ts.externalId AS externalId,
-         ast.id AS assetId
-  FROM `_cdf`.`timeseries` AS ts
-
-  INNER JOIN `_cdf`.`assets` AS ast ON split(ts.externalId, ":") [0] = ast.externalId
+  SELECT
+    external_id AS externalId,
+    IF(
+      parent_external_id = ''
+      OR parent_external_id IS NULL,
+      '',
+      parent_external_id
+    ) AS parentExternalId,
+    name AS name,
+    json_tuple(metadata,'site','type', 'cycle time', 'Function', 'src', 'Machine type') AS (site, type, cycle_time, function, src, machine_type),
+    to_metadata(site,type, cycle_time, function, src, machine_type) AS metadata,
+    description AS description,
+    'from RAW' AS source,
+    Dataset_id('src:001:sap:ds') AS dataSetId
+  FROM
+    `src:001:sap:db`.assets
 destination:
-  type: timeseries
+  type: asset_hierarchy
 ignoreNullFields: true
 shared: true
-action: update
-dataSetExternalId: uc:001:oee:ds
+action: upsert
+dataSetExternalId: src:001:sap:ds
 authentication:
-<<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
-    clientId: ${COGNITE_CLIENT_ID}
-    clientSecret: ${COGNITE_CLIENT_SECRET}
-    tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
-  # Optional: If idP requires providing the scopes
-    cdfProjectName: ${CDF_PROJECT_NAME}
-    scopes:
-        - https://westeurope-1.cognitedata.com/.default
-========
   clientId: ${COGNITE_CLIENT_ID}
   clientSecret: ${COGNITE_CLIENT_SECRET}
   tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
@@ -31,7 +33,6 @@ authentication:
   scopes:
         - https://westeurope-1.cognitedata.com/.default
 # modified
->>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
 # Specify credentials separately like this:
 # authentication:
 #   read:
@@ -64,8 +65,4 @@ authentication:
 #   scopes: 
 #    - ${SCOPES}
 #   # Optional: If idP requires providing the audience
-<<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
 #   audience: ${AUDIENCE}
-========
-#   audience: ${AUDIENCE}
->>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
