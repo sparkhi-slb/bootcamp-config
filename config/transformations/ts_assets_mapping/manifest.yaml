@@ -14,24 +14,14 @@ shared: true
 action: update
 dataSetExternalId: uc:001:oee:ds
 authentication:
-<<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
-    clientId: ${COGNITE_CLIENT_ID}
-    clientSecret: ${COGNITE_CLIENT_SECRET}
-    tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
-  # Optional: If idP requires providing the scopes
-    cdfProjectName: ${CDF_PROJECT_NAME}
-    scopes:
-        - https://westeurope-1.cognitedata.com/.default
-========
   clientId: ${COGNITE_CLIENT_ID}
   clientSecret: ${COGNITE_CLIENT_SECRET}
   tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
   # Optional: If idP requires providing the scopes
   cdfProjectName: ${CDF_PROJECT_NAME}
   scopes:
-        - https://westeurope-1.cognitedata.com/.default
-# modified 1
->>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
+    - https://westeurope-1.cognitedata.com/.default
+  # Optional: If idP requires providing the scopes
 # Specify credentials separately like this:
 # authentication:
 #   read:
@@ -64,8 +54,8 @@ authentication:
 #   scopes: 
 #    - ${SCOPES}
 #   # Optional: If idP requires providing the audience
-<<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
+  <<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
+  #   audience: ${AUDIENCE}
+  ========
 #   audience: ${AUDIENCE}
-========
-#   audience: ${AUDIENCE}
->>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
+  >>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
