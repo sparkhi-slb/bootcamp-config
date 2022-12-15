@@ -54,8 +54,3 @@ authentication:
 #   scopes: 
 #    - ${SCOPES}
 #   # Optional: If idP requires providing the audience
-  <<<<<<<< HEAD:config/transformations/ts_assets_mapping/manifest.yaml
-  #   audience: ${AUDIENCE}
-  ========
-#   audience: ${AUDIENCE}
-  >>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
