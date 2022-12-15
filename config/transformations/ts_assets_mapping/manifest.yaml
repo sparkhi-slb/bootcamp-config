@@ -30,7 +30,7 @@ authentication:
   cdfProjectName: ${CDF_PROJECT_NAME}
   scopes:
         - https://westeurope-1.cognitedata.com/.default
-# modified
+# modified 1
 >>>>>>>> origin/main:config/transformations/asset_mapping/manifest.yaml
 # Specify credentials separately like this:
 # authentication:
